@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new; end
+  include Devise::Controllers::Helpers
+  def new
+
+  end
 end

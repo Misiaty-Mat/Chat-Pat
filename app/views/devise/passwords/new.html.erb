@@ -1,0 +1,49 @@
+<h2 class="ui center aligned icon header">
+  <i class="circular inverted blue user icon"></i>
+  Forgot your password?
+</h2>
+
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <div class="ui form">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :email %>
+            <div class="ui left icon input">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <i class="user icon"></i>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div class="ui blue submit button">
+              Send reset password mail
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="middle aligned column">
+      <div class="ui one column grid">
+        <div class="row">
+          <div class="ui big button side-button">
+            <i class="signup icon"></i>
+            Login
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui big button side-button">
+            <i class="signup icon"></i>
+            Sign up
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical divider">
+    Or
+  </div>
+</div>

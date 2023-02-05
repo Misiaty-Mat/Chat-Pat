@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'chatroom#index'
-  get 'login', to: 'sessions#new'
+  root to: 'chatroom#index'
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 end
