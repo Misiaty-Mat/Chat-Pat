@@ -7,3 +7,9 @@
 .side-button {
   width: 50%;
 }
+
+@media (max-width: 767px) {
+  .ui.vertical.divider {
+    display: none;
+  }
+}
