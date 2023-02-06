@@ -4,32 +4,34 @@
 </h2>
 <div class="ui two column grid">
   <div class="twelve wide column">
-    <div class="ui fluid raised card chatbox">
-      <div class="content">
+    <div class="ui bottom-started fluid raised card chatbox">
+      <div class="scrollable content">
         <div class="ui small feed">
-          <div class="event">
-            <div class="label">
-              <img src="#">
+          <% @messages.each do |message| %>
+            <div class="event">
+              <div class="label">
+                <img src="#">
+              </div>
+              <div class="content">
+                  <div class="summary">
+                    <a class="user">
+                      <%= message.user.username %>
+                    </a>
+                    <div class="date">
+                      <%= time_ago_in_words(message.created_at) %> ago
+                    </div>
+                  </div>
+                  <div class="extra text">
+                    <%= message.body %>
+                  </div>
+                  <div class="meta">
+                    <a class="like">
+                      <i class="like icon"></i> 11 Likes
+                    </a>
+                  </div>
+              </div>
             </div>
-            <div class="content">
-              <div class="summary">
-                <a class="user">
-                  Elliot Fu
-                </a>
-                <div class="date">
-                  1 Hour Ago
-                </div>
-              </div>
-              <div class="extra text">
-                I'm having a BBQ this weekend. Come by around 4pm if you can.
-              </div>
-              <div class="meta">
-                <a class="like">
-                  <i class="like icon"></i> 11 Likes
-                </a>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
       <div class="extra content">

@@ -2,7 +2,5 @@
 
 class SessionsController < ApplicationController
   include Devise::Controllers::Helpers
-  def new
-
-  end
+  def new; end
 end

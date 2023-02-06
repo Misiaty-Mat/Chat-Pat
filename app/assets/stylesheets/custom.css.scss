@@ -8,6 +8,16 @@
   width: 50%;
 }
 
+.submit-button {
+  font-size: 1rem !important;
+}
+
+.scrollable {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 @media (max-width: 767px) {
   .ui.vertical.divider {
     display: none;
