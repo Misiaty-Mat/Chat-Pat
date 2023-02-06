@@ -8,12 +8,20 @@
   <div class="ui dropdown item">
     Account <i class="dropdown icon"></i>
     <div class="menu">
-      <a class="item">Log out</a>
-      <a class="item" href="/users/sign_in">Log in</a>
-      <a class="item" href="/users/sign_up">Sign up</a>
+      <% if current_user %>
+        <%= link_to 'Log out', destroy_user_session_path, class: 'item',
+            data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}%>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path, class: 'item' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'item' %>
+      <% end %>
     </div>
   </div>
   <div class="item">
-    <div class="ui primary button">Sign Up</div>
+    <% if current_user %>
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'ui primary button' %>
+    <% else %>
+        <%= button_to 'Login', new_user_session_path, method: :get, class: 'ui primary button' %>
+    <% end %>
   </div>
 </div>

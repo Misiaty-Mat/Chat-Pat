@@ -12,7 +12,7 @@
             <%= f.label :email %>
             <div class="ui left icon input">
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              <i class="user icon"></i>
+              <i class="envelope icon"></i>
             </div>
           </div>
 
@@ -33,25 +33,17 @@
             </div>
           <% end %>
 
-          <div class="actions">
-            <div class="ui blue submit button">Login</div>
-          </div>
+          <%= f.submit 'Login', :class => 'ui primary big button' %>
         <% end %>
       </div>
     </div>
     <div class="middle aligned column">
       <div class="ui one column grid">
         <div class="row">
-          <div class="ui big button side-button">
-            <i class="signup icon"></i>
-            Sign up
-          </div>
+          <%= link_to '<i class="chevron right icon"></i>Sign up'.html_safe, new_user_registration_path, method: :get, class: 'ui button side-button' %>
         </div>
         <div class="row">
-          <div class="ui big button side-button">
-            <i class="signup icon"></i>
-            Forgot your password?
-          </div>
+          <%= link_to '<i class="chevron right icon"></i>Forgot your password?'.html_safe, new_user_password_path, method: :get, class: 'ui button side-button' %>
         </div>
       </div>
     </div>

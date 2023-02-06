@@ -49,10 +49,7 @@
       </div>
     </div>
     <div class="middle aligned column">
-      <div class="ui big button side-button">
-        <i class="signup icon"></i>
-        Log in
-      </div>
+      <%= link_to '<i class="chevron right icon"></i>Login'.html_safe, new_user_session_path, method: :get, class: 'ui button side-button' %>
     </div>
   </div>
   <div class="ui vertical divider">
