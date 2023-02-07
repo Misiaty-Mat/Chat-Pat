@@ -2,18 +2,8 @@
 
 module Users
   class SessionsController < Devise::SessionsController
-    before_action :configure_sign_in_params, only: [:create]
+    include UserStatus
 
-
-
-
-
-
-
-    protected
-
-    def configure_sign_in_params
-      devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-    end
+    before_action :logged_in_redirect, only: [:new, :create]
   end
 end

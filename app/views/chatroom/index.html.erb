@@ -6,19 +6,19 @@
   <div class="twelve wide column">
     <div class="ui bottom-started fluid raised card chatbox">
       <div class="scrollable content">
-        <div class="ui small feed">
+        <div class="ui small feed" id="messages-container">
           <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
+        <%= form_for(@message, html: { class: 'ui reply form', role: 'form' }, url: message_path, remote: true) do |f| %>
           <div class="field">
-            <div class="ui fluid icon input">
-              <input type="text" placeholder="Write a message...">
-              <i class="bordered inverted blue edit icon"></i>
+            <div class="ui fluid icon input <%= 'disabled' unless current_user %>">
+              <%= f.text_field :body, placeholder: 'Write a message...' %>
+              <%= f.button '<i class="chevron circle right icon"></i>'.html_safe, class: "ui blue inverted icon button", id: 'submit_message' %>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

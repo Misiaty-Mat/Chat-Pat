@@ -13,8 +13,9 @@
 }
 
 .scrollable {
-  overflow-y: scroll;
   display: flex;
+  height: 15em;
+  overflow-y: scroll;
   flex-direction: column-reverse;
 }
 

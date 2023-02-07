@@ -3,16 +3,31 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import * as jquery from "jquery"
 import "semantic-ui"
+import "channels"
 
-$(document).on('turbo:load', function() {
+
+const submitMessageOnEnterPress = () => {
+    $('#message_body').on('keydown', function(e) {
+        if (e.keyCode === 13) {
+            $('#submit_message').click();
+        }
+    })
+}
+
+const submitMessageButtonClick = () => {
+    $('#submit_message').on('click', function () {
+            setTimeout( () => { $("#message_body").val('') }, 1);
+    });
+}
+
+$(document).on('turbo:load', () => {
     $('.ui.dropdown').dropdown()
 
     $('.message .close')
         .on('click', function() {
-            $(this)
-                .closest('.message')
-                .transition('fade')
-            ;
-        })
-    ;
+            $(this).closest('.message')
+                   .transition('fade');
+        });
+    submitMessageOnEnterPress();
+    submitMessageButtonClick();
 });
