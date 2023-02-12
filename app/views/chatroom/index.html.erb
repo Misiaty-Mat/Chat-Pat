@@ -7,7 +7,16 @@
     <div class="ui bottom-started fluid raised card chatbox">
       <div class="scrollable content">
         <div class="ui small feed" id="messages-container">
-          <%= render cache @messages %>
+          <div id="with-button">
+            <%= will_paginate @messages %>
+          </div>
+
+          <% if @messages.next_page %>
+            <div id="load_more_messages" class="btn btn-primary btn-lg">More messages</div>
+          <% end %>
+          <div id="my-messages">
+            <%= render @messages %>
+          </div>
         </div>
       </div>
       <div class="extra content">

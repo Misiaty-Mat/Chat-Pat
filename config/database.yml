@@ -17,24 +17,24 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  reconnect: true
+  port: 5432
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: Chat_Pat_development
-  username: postgres
-  password: admin
+  database: chat_pat_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: Chat_Pat
+  username: <%= ENV.fetch("POSTGRESQL_DB_USERNAME") %>
 
   # The password associated with the postgres role (username).
-  #password:
+  password: <%= ENV.fetch("POSTGRESQL_DB_PASSWORD") %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have

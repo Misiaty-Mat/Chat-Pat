@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action :require_user
   def create
@@ -8,11 +10,12 @@ class MessagesController < ApplicationController
   end
 
   private
+
   def message_params
     params.require(:message).permit(:body)
   end
 
   def message_render(message)
-    render(partial: 'message', locals: { message: message })
+    render(partial: 'message', locals: { message: })
   end
 end

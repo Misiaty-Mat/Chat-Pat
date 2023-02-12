@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   root to: 'chatroom#index'
 
-  post 'message', to: 'messages#create'
+  post '/message', to: 'messages#create'
+  get '/messages_with_button', to: 'chatroom#index_with_button', as: 'messages_with_button'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

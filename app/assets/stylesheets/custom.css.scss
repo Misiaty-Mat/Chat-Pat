@@ -19,6 +19,11 @@
   flex-direction: column-reverse;
 }
 
+#load_more_messages {
+  display: none;
+  margin-top: 10px;
+}
+
 @media (max-width: 767px) {
   .ui.vertical.divider {
     display: none;
