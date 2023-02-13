@@ -1,7 +1,8 @@
-$('#my-messages').prepend('<%= j render @messages %>');
+$('#messagesContainer').prepend('<%= j render @messages.reverse %>');
 <% if @messages.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate @messages %>');
   $('.pagination').hide();
+  $('.pagination, #loadMoreMessages').prependTo('#messagesContainer');
 <% else %>
-  $('.pagination, #load_more_messages').remove();
+  $('.pagination, #loadMoreMessages').remove();
 <% end %>

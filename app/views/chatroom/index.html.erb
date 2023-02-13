@@ -6,17 +6,17 @@
   <div class="twelve wide column">
     <div class="ui bottom-started fluid raised card chatbox">
       <div class="scrollable content">
-        <div class="ui small feed" id="messages-container">
-          <div id="with-button">
+        <div class="ui small feed" id="messagesContainer">
+          <div id="withButton">
             <%= will_paginate @messages %>
           </div>
 
           <% if @messages.next_page %>
-            <div id="load_more_messages" class="btn btn-primary btn-lg">More messages</div>
+            <div id="loadMoreMessages" class="center aligned">
+              <button class="ui primary small basic button">More messages</button>
+            </div>
           <% end %>
-          <div id="my-messages">
-            <%= render @messages %>
-          </div>
+          <%= render @messages.reverse %>
         </div>
       </div>
       <div class="extra content">

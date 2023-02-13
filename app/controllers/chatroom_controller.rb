@@ -15,8 +15,8 @@ class ChatroomController < ApplicationController
   def messages_load
     @messages = Message
                 .includes(:user)
-                .paginate(page: params[:page], per_page: 10)
                 .order('created_at DESC')
+                .paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
       format.html
