@@ -1,9 +1,15 @@
 import { submitMessageButtonClick, submitMessageOnEnterPress, closePopupMessage } from "./message";
 import { infiniteScrolling } from "./infiniteScrolling";
 import { dropdown } from "./dropdown";
+import { like } from "./like";
 
-export const submitMessageButtonClickFunc = submitMessageButtonClick
-export const submitMessageOnEnterPressFunc = submitMessageOnEnterPress
-export const closePopupMessageFunc = closePopupMessage
-export const infiniteScrollingFunc = infiniteScrolling
-export const dropdownFunc = dropdown
+const startCustomFunctions = () => {
+    submitMessageButtonClick();
+    submitMessageOnEnterPress();
+    closePopupMessage();
+    infiniteScrolling();
+    dropdown();
+    like();
+}
+
+export default startCustomFunctions

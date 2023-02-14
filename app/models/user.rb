@@ -10,4 +10,5 @@ class User < ApplicationRecord
                        uniqueness: { case_sensitive: false }
 
   has_many :messages
+  has_many :likes
 end

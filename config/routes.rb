@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   post '/message', to: 'messages#create'
   get '/messages_with_button', to: 'chatroom#index_with_button', as: 'messages_with_button'
+  delete '/likes', to: 'likes#destroy'
+
+  resources :likes, only: %i[create]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

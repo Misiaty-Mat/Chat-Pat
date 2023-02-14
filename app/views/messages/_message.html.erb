@@ -1,4 +1,4 @@
-<div class="event">
+<div class="event" id="message<%= message.id %>">
   <div class="label">
     <img src="<%= image_path 'default_avatar.png' %>">
   </div>
@@ -15,9 +15,11 @@
       <%= message.body %>
     </div>
     <div class="meta">
-      <a class="like">
-        <i class="like icon"></i> 11 Likes
-      </a>
+      <%= link_to "<i class=\"like icon\"></i> <span id=\"likeCount\">#{message.likes_count}</span> Likes".html_safe,
+                  likes_path(like: { message_id: message.id }),
+                  class: "like likeButton #{ 'liked' if message.liked?(current_user) }",
+                  data: {turbo_method: message.liked?(current_user) ? :delete : :post}
+      %>
     </div>
   </div>
 </div>
