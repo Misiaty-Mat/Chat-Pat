@@ -1,6 +1,6 @@
 <div class="event" id="message<%= message.id %>">
   <div class="label">
-    <img src="<%= image_path 'default_avatar.png' %>">
+    <%= image_tag user_avatar(message.user) %>
   </div>
   <div class="content">
     <div class="summary">

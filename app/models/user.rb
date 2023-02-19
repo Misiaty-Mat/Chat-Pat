@@ -11,4 +11,5 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :likes
+  has_one_attached :avatar
 end
