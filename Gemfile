@@ -8,7 +8,7 @@ ruby '3.1.3'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'gravatar_image_tag'
-gem "image_processing", ">= 1.2"
+gem 'image_processing', '>= 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
@@ -30,6 +30,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry'
   gem 'hirb'
   gem 'web-console'
 end
