@@ -6,8 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :messages
-  has_many :likes
+  has_many :messages, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one_attached :avatar
 
   validates :username, presence: true, length: { minimum: 3, maximum: 15 },
