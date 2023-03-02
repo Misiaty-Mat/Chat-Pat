@@ -1,5 +1,5 @@
 import { submitMessageButtonClick, submitMessageOnEnterPress, closePopupMessage } from "./message";
-import { confirmEditUser, submitEditUserChanges } from "./confirmEditUser";
+import { confirmEditUserModal, submitEditUserChanges } from "./confirmEditUserModal";
 import { infiniteScrolling } from "./infiniteScrolling";
 import { dropdown } from "./dropdown";
 import { like } from "./like";
@@ -9,7 +9,7 @@ const startCustomFunctions = () => {
     submitMessageOnEnterPress();
     closePopupMessage();
     infiniteScrolling();
-    confirmEditUser();
+    confirmEditUserModal();
     submitEditUserChanges();
     dropdown();
     like();

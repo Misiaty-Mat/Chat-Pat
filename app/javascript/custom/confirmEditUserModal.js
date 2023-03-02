@@ -1,8 +1,8 @@
-export const confirmEditUser = () => {
-    $('.ui.basic.modal').modal();
+export const confirmEditUserModal = () => {
+    $('#confirmChangesButton').modal();
 
     $('#confirmUserChanges').click(function() {
-        $('.ui.basic.modal').modal('show');
+        $('#confirmChangesButton').modal('show');
     })
 }
 

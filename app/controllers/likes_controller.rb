@@ -3,18 +3,13 @@
 class LikesController < ApplicationController
   before_action :require_user
   def create
-    return if Like.exists?(user_id: current_user.id, message_id:)
-
-    Like.create!(user_id: current_user.id, message_id:)
+    Like.find_or_create_by!(user_id: current_app_user.id, message_id: message_param_id)
 
     broadcast_like_counter
   end
 
   def destroy
-    puts like_params
-    return unless Like.exists?(like_params)
-
-    Like.destroy_by(user_id: current_user.id, message_id:)
+    Like.destroy_by(user_id: current_app_user.id, message_id: message_param_id)
 
     broadcast_like_counter
   end
@@ -25,13 +20,13 @@ class LikesController < ApplicationController
     params.require(:like).permit(:message_id)
   end
 
-  def message_id
+  def message_param_id
     like_params[:message_id]
   end
 
   def broadcast_like_counter
-    message = Message.find(message_id)
+    @message ||= Message.includes(:likes).find(message_param_id)
     ActionCable.server.broadcast('chatroom_channel',
-                                 { message_id:, like_count: message.likes_count })
+                                 { message_id: message_param_id, like_count: @message.likes_count })
   end
 end

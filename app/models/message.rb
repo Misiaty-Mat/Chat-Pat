@@ -2,17 +2,17 @@
 
 class Message < ApplicationRecord
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   validates :body, length: { minimum: 1, maximum: 240 }
 
   def likes_count
-    Like.where(message_id: id).count
+    likes.where(message_id: id).count
   end
 
   def liked?(user)
     return false unless user
 
-    Like.exists?(message_id: id, user_id: user.id)
+    likes.exists?(message_id: id, user_id: user.id)
   end
 end

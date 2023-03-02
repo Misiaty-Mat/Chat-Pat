@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   root to: 'chatroom#index'
+  get '/users', to: 'chatroom#index'
 
   post '/message', to: 'messages#create'
   get '/messages_with_button', to: 'chatroom#index_with_button', as: 'messages_with_button'

@@ -18,7 +18,7 @@ class User < ApplicationRecord
   private
 
   def avatar_file_type
-    return if avatar.blob.content_type.include? 'image'
+    return if avatar.blob.nil? || avatar.blob.content_type.include?('image')
 
     errors.add(:avatar, 'must be an image')
   end
